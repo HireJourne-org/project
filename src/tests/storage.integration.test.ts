@@ -4,10 +4,18 @@ import { supabase } from '../services/supabaseService';
 
 describe('Storage Service', () => {
   beforeAll(async () => {
-    // Verify we have a valid Supabase connection
+    // Sign in as the dedicated test user so storage RLS applies.
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
-      throw new Error('No authenticated session');
+      const email = import.meta.env.VITE_TEST_USER_EMAIL;
+      const password = import.meta.env.VITE_TEST_USER_PASSWORD;
+      if (!email || !password) {
+        throw new Error('Set VITE_TEST_USER_EMAIL and VITE_TEST_USER_PASSWORD to run storage integration tests');
+      }
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        throw new Error(`Test user sign-in failed: ${error.message}`);
+      }
     }
   });
 

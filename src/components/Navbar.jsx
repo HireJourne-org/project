@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ListChecks, PlusCircle, Home, LogOut, UserCircle, FileText, MessageSquare } from 'lucide-react';
+import { ListChecks, PlusCircle, Home, LogOut, UserCircle, FileText, MessageSquare, Target } from 'lucide-react';
 import { signOut } from '../services/authService';
 import toast from 'react-hot-toast';
 
@@ -41,6 +41,7 @@ const Navbar = () => {
               <NavLink to="/" icon={<Home className="h-5 w-5" />} text="Dashboard" />
               <NavLink to="/questions" icon={<ListChecks className="h-5 w-5" />} text="Questions" />
               <NavLink to="/submissions" icon={<FileText className="h-5 w-5" />} text="Submissions" />
+              <NavLink to="/strategies" icon={<Target className="h-5 w-5" />} text="Strategies" />
               <NavLink to="/chat" icon={<MessageSquare className="h-5 w-5" />} text="Chat" />
               <NavLink to="/add" icon={<PlusCircle className="h-5 w-5" />} text="Add Question" />
               <NavLink to="/profile" icon={<UserCircle className="h-5 w-5" />} text="Profile" />

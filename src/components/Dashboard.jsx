@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, BookOpen, CheckCircle, XCircle, Clock } from 'lucide-react';
+import NewMatchesBadge from './NewMatchesBadge';
 
 const Dashboard = ({ questions }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,6 +28,8 @@ const Dashboard = ({ questions }) => {
 
   return (
     <div className="space-y-8">
+      <NewMatchesBadge />
+
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-primary mb-6">Interview Prep Dashboard</h1>
         
