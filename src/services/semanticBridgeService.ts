@@ -96,3 +96,13 @@ const setReviewStatus = async (id: string, status: ReviewStatus) => {
 // Review First: the user's explicit sign-off. Only call from a user action.
 export const approveCompanyStrategy = (id: string) => setReviewStatus(id, 'verified');
 export const rejectCompanyStrategy = (id: string) => setReviewStatus(id, 'rejected');
+
+export const countPendingStrategies = async (): Promise<number> => {
+  const { count, error } = await supabase
+    .from('company_strategies')
+    .select('id', { count: 'exact', head: true })
+    .eq('status', 'pending_review');
+
+  if (error) throw error;
+  return count ?? 0;
+};

@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:storage": "node --loader ts-node/esm src/tests/simpleStorageTest.ts",
     "test:watch": "vitest",
-    "test:integration": "vitest run --config vitest.integration.config.ts"
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "seed:demo": "node scripts/seed-demo.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.7",
