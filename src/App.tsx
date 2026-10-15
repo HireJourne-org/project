@@ -16,6 +16,7 @@ import UserProfile from './components/UserProfile';
 import SubmissionsDashboard from './components/SubmissionsDashboard';
 import AdminDashboard from './components/AdminDashboard';
 import Chat from './components/Chat';
+import CompanyStrategyDrafts from './components/CompanyStrategyDrafts';
 
 // Services
 import { fetchQuestions, testSupabaseConnection, supabase } from './services/supabaseService';
@@ -164,6 +165,7 @@ function App() {
             <Route path="/submissions" element={<SubmissionsDashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/strategies" element={<CompanyStrategyDrafts />} />
           </Routes>
         </div>
         <Toaster position="top-right" />
