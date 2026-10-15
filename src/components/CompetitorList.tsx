@@ -13,8 +13,16 @@ const CompetitorList: React.FC<CompetitorListProps> = ({ competitors, loading })
     return (
       <div className="animate-pulse space-y-4">
         {[...Array(5)].map((_, i) => (
-          <div key={i} className="bg-gray-100 h-24 rounded-xl"></div>
+          <div key={i} data-testid="competitor-skeleton" className="bg-gray-100 h-24 rounded-xl"></div>
         ))}
+      </div>
+    );
+  }
+
+  if (competitors.length === 0) {
+    return (
+      <div className="bg-white p-6 rounded-xl shadow-sm text-center text-gray-600">
+        No competitors found
       </div>
     );
   }
